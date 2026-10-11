@@ -1,6 +1,7 @@
-// src/layout/Footer.jsx
 
 import React from "react";
+import { Link } from "react-router-dom";
+
 import {
   Mail,
   Phone,
@@ -20,155 +21,190 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const quickLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about-us" },
+    // { name: "Courses", path: "/courses" },
+    // { name: "Notes & PDFs", path: "/notes" },
+    { name: "Contact", path: "/contact-us" },
+  ];
+
+  const services = [
+    {
+      name: "Study Notes",
+      icon: BookOpen,
+      path: "/notes",
+    },
+    // {
+    //   name: "Video Tutorials",
+    //   icon: Video,
+    //   path: "/videos",
+    // },
+    {
+      name: "Question Banks",
+      icon: FileText,
+      path: "/question-banks",
+    },
+    {
+      name: "Online Exams",
+      icon: GraduationCap,
+      path: "/exams",
+    },
+  ];
+
+  const socialLinks = [
+    // {
+    //   name: "Instagram",
+    //   url: "https://instagram.com",
+    //   icon: FaInstagram,
+    //   color: "bg-pink-600",
+    // },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/abpedutech",
+      icon: FaFacebookF,
+      color: "bg-blue-600",
+    },
+    // {
+    //   name: "YouTube",
+    //   url: "https://youtube.com",
+    //   icon: FaYoutube,
+    //   color: "bg-red-600",
+    // },
+    // {
+    //   name: "Telegram",
+    //   url: "https://telegram.org",
+    //   icon: FaTelegramPlane,
+    //   color: "bg-sky-500",
+    // },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/company/107646199/admin/dashboard/",
+      icon: FaLinkedinIn,
+      color: "bg-blue-700",
+    },
+  ];
+
   return (
-    <footer className="bg-gray-950 text-white pt-14 pb-6 px-6 md:px-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
+    <footer className="bg-gray-950 px-6 pt-14 pb-6 text-white md:px-16">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
         {/* Logo & About */}
         <div>
-          <h2 className="text-3xl font-bold text-blue-400 mb-4">
-            ABP EduTech
-          </h2>
+          <Link
+            to="/"
+            className="mb-4 inline-block text-3xl font-bold text-blue-400"
+          >
+            ABPEduTech
+          </Link>
 
-          <p className="text-gray-400 leading-7">
-            Your complete learning platform for Notes, PDFs, Video Tutorials,
-            Exams, Question Banks, and Study Materials for all subjects.
+          <p className="leading-7 text-gray-400">
+            Your complete learning platform for notes, PDFs, video tutorials,
+            exams, question banks, and study materials for all subjects.
           </p>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4 mt-6">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-pink-600 hover:scale-110 transition p-3 rounded-full"
-            >
-              <FaInstagram size={18} />
-            </a>
+          <div className="mt-6 flex items-center gap-3">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
 
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-blue-600 hover:scale-110 transition p-3 rounded-full"
-            >
-              <FaFacebookF size={18} />
-            </a>
-
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-red-600 hover:scale-110 transition p-3 rounded-full"
-            >
-              <FaYoutube size={18} />
-            </a>
-
-            <a
-              href="https://telegram.org"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-sky-500 hover:scale-110 transition p-3 rounded-full"
-            >
-              <FaTelegramPlane size={18} />
-            </a>
-
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-blue-700 hover:scale-110 transition p-3 rounded-full"
-            >
-              <FaLinkedinIn size={18} />
-            </a>
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className={`${social.color} rounded-full p-3 transition duration-300 hover:scale-110`}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-semibold mb-5 text-blue-400">
+          <h3 className="mb-5 text-xl font-semibold text-blue-400">
             Quick Links
           </h3>
 
           <ul className="space-y-4 text-gray-400">
-            <li className="hover:text-white cursor-pointer transition">
-              Home
-            </li>
-
-            <li className="hover:text-white cursor-pointer transition">
-              About Us
-            </li>
-
-            <li className="hover:text-white cursor-pointer transition">
-              Courses
-            </li>
-
-            <li className="hover:text-white cursor-pointer transition">
-              Notes & PDFs
-            </li>
-
-            <li className="hover:text-white cursor-pointer transition">
-              Contact
-            </li>
+            {quickLinks.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="transition-colors duration-200 hover:text-white"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         {/* Services */}
         <div>
-          <h3 className="text-xl font-semibold mb-5 text-blue-400">
+          <h3 className="mb-5 text-xl font-semibold text-blue-400">
             Our Services
           </h3>
 
           <ul className="space-y-4 text-gray-400">
-            <li className="flex items-center gap-3">
-              <BookOpen size={18} />
-              Study Notes
-            </li>
+            {services.map((service) => {
+              const Icon = service.icon;
 
-            <li className="flex items-center gap-3">
-              <Video size={18} />
-              Video Tutorials
-            </li>
-
-            <li className="flex items-center gap-3">
-              <FileText size={18} />
-              Question Banks
-            </li>
-
-            <li className="flex items-center gap-3">
-              <GraduationCap size={18} />
-              Online Exams
-            </li>
+              return (
+                <li key={service.name}>
+                  <Link
+                    to={service.path}
+                    className="flex items-center gap-3 transition-colors duration-200 hover:text-white"
+                  >
+                    <Icon size={18} />
+                    <span>{service.name}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         {/* Contact */}
         <div>
-          <h3 className="text-xl font-semibold mb-5 text-blue-400">
+          <h3 className="mb-5 text-xl font-semibold text-blue-400">
             Contact Us
           </h3>
 
           <div className="space-y-5 text-gray-400">
             <div className="flex items-start gap-3">
-              <MapPin size={20} className="mt-1" />
-              <p>Mithapur, Bihar, India</p>
+              <MapPin size={20} className="mt-1 shrink-0" />
+              <p>Saharsa, Bihar, India</p>
             </div>
 
             <div className="flex items-center gap-3">
-              <Phone size={20} />
-              <p>+91 9876543210</p>
+              <Phone size={20} className="shrink-0" />
+              <a
+                href="tel:+917991156062"
+                className="transition-colors hover:text-white"
+              >
+                +91 7991156062
+              </a>
             </div>
 
             <div className="flex items-center gap-3">
-              <Mail size={20} />
-              <p>support@abpedutech.com</p>
+              <Mail size={20} className="shrink-0" />
+              <a
+                href="mailto:support@abpedutech.in"
+                className="break-all transition-colors hover:text-white"
+              >
+                support@abpedutech.in
+              </a>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-gray-800 mt-12 pt-6 text-center text-gray-500">
+      <div className="mt-12 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
         © {new Date().getFullYear()} ABP EduTech. All Rights Reserved.
       </div>
     </footer>

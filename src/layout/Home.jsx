@@ -30,7 +30,7 @@ const Home = () => {
               BPSC, and more.
             </p>
 
-            <div className="flex gap-4 flex-wrap">
+            {/* <div className="flex gap-4 flex-wrap">
               
               <button className="bg-yellow-400 text-black px-6 py-3 rounded-2xl font-semibold hover:bg-yellow-300 transition">
                 Start Learning
@@ -39,7 +39,7 @@ const Home = () => {
               <button className="border border-white px-6 py-3 rounded-2xl font-semibold hover:bg-white hover:text-black transition">
                 Explore Courses
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex justify-center">
@@ -174,7 +174,7 @@ const Home = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-blue-700 text-white">
+      {/* <section className="py-20 bg-blue-700 text-white">
         
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
           
@@ -214,7 +214,7 @@ const Home = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <Footer /> */}
     </div>

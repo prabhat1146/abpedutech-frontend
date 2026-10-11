@@ -11,8 +11,8 @@ const CRUD = {
   },
 
   // GET ONE
-  getById: (url, id, requiresAuth = true) => {
-    return api.get(`${url}/${id}`, {
+  getById: (url, requiresAuth = true) => {
+    return api.get(`${url}`, {
       requiresAuth,
     });
   },
@@ -25,22 +25,22 @@ const CRUD = {
   },
 
   // UPDATE
-  put: (url, id, data, requiresAuth = true) => {
-    return api.put(`${url}/${id}`, data, {
+  put: (url, data, requiresAuth = true) => {
+    return api.put(`${url}}`, data, {
       requiresAuth,
     });
   },
 
   // PATCH
-  patch: (url, id, data, requiresAuth = true) => {
-    return api.patch(`${url}/${id}`, data, {
+  patch: (url, data, requiresAuth = true) => {
+    return api.patch(`${url}`, data, {
       requiresAuth,
     });
   },
 
   // DELETE
-  delete: (url, id, requiresAuth = true) => {
-    return api.delete(`${url}/${id}`, {
+  delete: (url, requiresAuth = true) => {
+    return api.delete(`${url}`, {
       requiresAuth,
     });
   },

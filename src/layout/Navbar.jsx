@@ -1,4 +1,5 @@
 import { Menu, BookOpen, FileText, Video, GraduationCap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -12,37 +13,10 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8 font-medium">
           
-          <a href="#home" className="hover:text-yellow-300 transition">
-            Home
-          </a>
 
-          <a
-            href="#notes"
-            className="hover:text-yellow-300 transition flex items-center gap-1"
-          >
-            <BookOpen size={18} />
-            Notes
-          </a>
-
-          <a
-            href="#tests"
-            className="hover:text-yellow-300 transition flex items-center gap-1"
-          >
-            <FileText size={18} />
-            Mock Tests
-          </a>
-
-          <a
-            href="#tutorials"
-            className="hover:text-yellow-300 transition flex items-center gap-1"
-          >
-            <Video size={18} />
-            Tutorials
-          </a>
-
-          <button className="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-yellow-300 transition">
+          <Link to={"/login"}  className="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-yellow-300 transition">
             Login
-          </button>
+          </Link>
         </div>
 
         <div className="md:hidden">
